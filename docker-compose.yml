@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: taskdb2
+      MYSQL_USER: taskuser2
+      MYSQL_PASSWORD: taskpass2
+      MYSQL_ROOT_PASSWORD: rootpass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+  api:
+    build: .
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=mysql+pymysql://taskuser2:taskpass2@db:3306/taskdb2
+    ports:
+      - "8000:8000"
+    command: ["/app/wait-for-db.sh", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+volumes:
+  db_data:
+
