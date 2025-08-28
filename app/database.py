@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 # Read from environment variable (set in docker-compose.yml)
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "mysql+pymysql://taskuser2:taskpass2@db:3306/taskdb2"
+    "mysql+pymysql://taskuser2:taskpass2@db:3306/taskdb2" # DATABASE_URL = "mysql+pymysql://taskuser:taskpass@127.0.0.1:3306/taskdb" To run in localhost
 )
 
 engine = create_engine(DATABASE_URL, echo=True, future=True)
