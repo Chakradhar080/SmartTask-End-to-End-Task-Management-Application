@@ -23,6 +23,25 @@
 ```
 docker-compose up --build
 ```
+## Quickstart (Frontend - React)
+1. Navigate to the frontend folder:
+```
+cd frontend
+```
+2. Install dependencies:
+```
+npm install
+```
+3. Run the development server:
+```
+npm start
+```
+or
+```
+npm run dev
+```
+4. The frontend will run at: http://localhost:3000
+Make sure your backend (FastAPI) is running at port 8000 before testing the frontend.
 
 ## Notes
 - Change SECRET_KEY in app/auth.py before production.
