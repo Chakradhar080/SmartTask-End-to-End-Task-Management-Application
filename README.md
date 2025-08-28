@@ -19,8 +19,7 @@
    ```
 5. Open Swagger UI: http://127.0.0.1:8000/docs
 
-6. To run the code in local system
-   Code in Database.py(Default set for Docker):
+6. To run the code in local system Code in Database.py(Default set for Docker):
 ```
 DATABASE_URL = "mysql+pymysql://taskuser:taskpass@db:3306/taskdb"
 ```
